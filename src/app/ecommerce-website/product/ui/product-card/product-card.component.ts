@@ -72,7 +72,7 @@ export class ProductCardComponent implements OnChanges, OnInit, OnDestroy {
 				this.productStoreService.updateCart({
 					product: this.productConfig,
 				});
-				this.subscription.add(this.productsInCart$.pipe(tap((items) => console.log(items))).subscribe());
+				this.subscription.add(this.productsInCart$.pipe(tap((items) => console.log("Products in the cart: ", items))).subscribe());
 				break;
 			case 'compare':
 				break;
