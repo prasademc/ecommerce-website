@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Added To Cart</h1>
+<div mat-dialog-content>
+  <p>{{data.product.name}}: ${{ data.product.price }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" cdkFocusInitial>Update</button>
+  <button mat-button (click)="onNoClick()">Cancle</button>
+</div>

@@ -1,0 +1,18 @@
+.pricetag {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid var(--color-gray);
+	padding: var(--space-xs) 0;
+
+	&__price {
+		font-size: var(--text-xl);
+		font-weight: bold;
+		color: var(--color-primary);
+	}
+
+	&__rrp{
+		color: var(--color-worn);
+	}
+}

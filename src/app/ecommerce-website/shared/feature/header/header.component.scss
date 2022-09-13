@@ -1,0 +1,35 @@
+.header {
+	width: 100%;
+	height: 10rem;
+	background: rgb(131, 58, 180);
+	background: linear-gradient(
+		90deg,
+		var(--color-primary) 0%,
+		var(--color-secondry) 100%
+	);
+
+	padding: var(--space-s) var(--space-l);
+
+	&__nav {
+		width: 100%;
+	}
+
+	&__nav-list {
+		display: flex;
+		list-style: none;
+	}
+
+	&__nav-item {
+		margin: var(--size-1);
+		color: var(--color-white);
+		font-size: var(--text-lg);
+	}
+
+	&__link {
+		cursor: pointer;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

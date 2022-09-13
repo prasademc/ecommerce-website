@@ -1,0 +1,12 @@
+<article class="card">
+	<picture class="card__image">
+		<img
+			src="{{ productConfig.image }}"
+			srcset="{{ productConfig.image}} 2x"
+			alt="{{ productConfig.name }}"
+		/>
+	</picture>
+	<p class="card__title">{{ productConfig.name }}</p>
+	<app-price-tag [pricetagConfig]="{price: productConfig.price, rrp: productConfig.rrp}"></app-price-tag>
+	<app-button-group [buttonGroupConfig]="buttons" (clickHandler)="onclickHandler($event)"></app-button-group>
+</article>

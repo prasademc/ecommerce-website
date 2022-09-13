@@ -1,0 +1,6 @@
+<div class="pricetag">
+	<span class="pricetag__price">
+		{{ this.pricetagConfig.price | currency: "USD":"symbol":"3.0" }}
+	</span>
+	<span class="pricetag__rrp">{{ this.pricetagConfig.rrp | rrp :  this.pricetagConfig.price }}</span>
+</div>

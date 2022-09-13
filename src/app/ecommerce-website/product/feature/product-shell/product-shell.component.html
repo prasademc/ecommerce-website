@@ -1,0 +1,11 @@
+
+<main class="products">
+	<section  *ngIf="products$ | async as products; else loading" class="products__container">
+		<app-product-card *ngFor="let product of products" [productConfig]="product"></app-product-card>
+	</section>
+	<ng-template #loading>
+		<section class="products__loading">
+			<app-loading-spinner></app-loading-spinner>
+		</section>
+	</ng-template>
+</main>

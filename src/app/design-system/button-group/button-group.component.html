@@ -1,0 +1,3 @@
+<div class="button-group">
+	<a *ngFor="let button of buttonGroupConfig" (click)="onClickHandler(button.action)" class="button-group__button">{{ button.text }}</a>
+</div>
