@@ -23,7 +23,6 @@ import { ProductStoreService } from '../../application/product-store.service';
 // import component
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 
-
 @Component({
 	selector: 'app-product-card',
 	templateUrl: './product-card.component.html',
@@ -40,10 +39,12 @@ export class ProductCardComponent implements OnChanges, OnInit, OnDestroy {
 		{
 			action: 'add-to-cart',
 			text: 'Add to Cart',
+			cssClassName: 'primary',
 		},
 		{
 			action: 'compare',
 			text: 'Compare',
+			cssClassName: 'secondry',
 		},
 	];
 
@@ -62,7 +63,7 @@ export class ProductCardComponent implements OnChanges, OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		if(this.subscription) this.subscription.unsubscribe();
+		if (this.subscription) this.subscription.unsubscribe();
 	}
 
 	public onclickHandler(action: string): void {
@@ -72,7 +73,15 @@ export class ProductCardComponent implements OnChanges, OnInit, OnDestroy {
 				this.productStoreService.updateCart({
 					product: this.productConfig,
 				});
-				this.subscription.add(this.productsInCart$.pipe(tap((items) => console.log("Products in the cart: ", items))).subscribe());
+				this.subscription.add(
+					this.productsInCart$
+						.pipe(
+							tap((items) =>
+								console.log('Products in the cart: ', items)
+							)
+						)
+						.subscribe()
+				);
 				break;
 			case 'compare':
 				break;

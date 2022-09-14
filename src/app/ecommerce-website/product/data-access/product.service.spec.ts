@@ -19,11 +19,11 @@ describe('ProductService', () => {
 
 	it('should retrieve all products', () => {
 		service.getProducts$().subscribe((products) => {
-			expect(products).be("No products returned");
-			expect(products.length).to.equal(50, "Incorrect number of products");
+			expect(products.length).toEqual(50, "Incorrect number of products");
 
 			const product = products.find((product) => product?.sku === '671695659-X');
-			expect(product?.price).to.equal(166, "Incorrect price of product");
+			console.log(product)
+			expect(product?.price).toEqual(166, "Incorrect price of product");
 		});
 	});
 });

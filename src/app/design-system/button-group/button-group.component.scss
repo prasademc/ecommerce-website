@@ -12,7 +12,7 @@
 		font-weight: bold;
 		font-size: var(--text-l);
 
-		&:first-of-type {
+		&.primary {
 			border-radius: var(--rounded) 0 0 var(--rounded);
 			background-color: var(--color-primary);
 			color: var(--color-white);
@@ -23,7 +23,7 @@
 			}
 		}
 
-		&:last-of-type {
+		&.secondry {
 			border-radius: 0 var(--rounded) var(--rounded) 0;
 			border-left-width: 0;
 			border-color: var(--color-gray);

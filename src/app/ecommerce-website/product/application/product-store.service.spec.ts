@@ -21,23 +21,16 @@ describe('ProductStoreService', () => {
 
 	it('should retrieve all products in store', () => {
 		service.products$.subscribe((products) => {
-			expect(products).be('No products returned');
-			expect(products.length).to.equal(
-				50,
+			expect(products.length).toEqual(
+				0,
 				'Incorrect number of products'
 			);
-
-			const product = products.find(
-				(product) => product?.sku === '671695659-X'
-			);
-			expect(product?.price).to.equal(166, 'Incorrect price of product');
 		});
 	});
 
 	it('should retrieve all products in store cart', () => {
 		service.productsInCart$.subscribe((products) => {
-			expect(products).be('No products returned');
-			expect(products.length).to.equal(
+			expect(products.length).toEqual(
 				0,
 				'Incorrect number of products'
 			);

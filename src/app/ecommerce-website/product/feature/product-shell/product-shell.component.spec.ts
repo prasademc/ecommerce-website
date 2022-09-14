@@ -1,6 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogRef } from '@angular/material/dialog';
+import { DesignSystemModule } from 'src/app/design-system/design-system.module';
 import { ProductStoreService } from '../../application/product-store.service';
 import { ProductShellModule } from '../product-shell.module';
 
@@ -13,14 +15,19 @@ describe('ProductShellComponent', () => {
 	let productStoreService: ProductStoreService;
 
 	beforeEach(async () => {
-		const productStoreServiceSpy = jasmine.createSpyObj('productStoreService', ['products$'])
+		const productStoreServiceSpy = jasmine.createSpyObj(
+			'productStoreService',
+			['products$']
+		);
 		await TestBed.configureTestingModule({
-			imports: [ProductShellModule, NoopAnimationsModule],
+			imports: [ProductShellModule, DesignSystemModule, HttpClientModule],
 			declarations: [ProductShellComponent],
-			providers: [{
-				provde: ProductStoreService,
-				useValue: productStoreServiceSpy
-			}],
+			providers: [
+				{
+					provde: ProductStoreService,
+					useValue: productStoreServiceSpy,
+				},
+			],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(ProductShellComponent);
@@ -28,7 +35,7 @@ describe('ProductShellComponent', () => {
 		fixture.detectChanges();
 	});
 
-	it('should create', () => {
-		expect(component).to.true;
+	it('should create product shell component', () => {
+		expect(component).toBeTruthy();
 	});
 });

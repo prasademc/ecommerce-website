@@ -8,7 +8,14 @@ import { ProductService } from '../data-access/product.service';
 import { ProductStore } from '../domain/product.store.model';
 import { PRODUCT_INITIAL_STATE } from '../domain/product.const';
 import { Product } from '../domain/product.model';
-import { catchError, EMPTY, Observable, switchMap, tap, withLatestFrom } from 'rxjs';
+import {
+	catchError,
+	EMPTY,
+	Observable,
+	switchMap,
+	tap,
+	withLatestFrom,
+} from 'rxjs';
 
 @Injectable()
 export class ProductStoreService extends ComponentStore<ProductStore> {
@@ -46,8 +53,13 @@ export class ProductStoreService extends ComponentStore<ProductStore> {
 				withLatestFrom(this.productsInCart$),
 				tap(([product, productsInCart]) => {
 					const cart = productsInCart;
-					cart.push(product.product);
-					this.setCart(cart);
+					const isItemExist = cart.filter(
+						(cproduct) => cproduct.sku === product.product.sku
+					);
+					if (isItemExist.length <= 0) {
+						cart.push(product.product);
+						this.setCart(cart);
+					}
 				})
 			)
 	);
